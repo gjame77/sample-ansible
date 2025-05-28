@@ -4,7 +4,7 @@
   vars:
     slack_webhook_url: "https://hooks.slack.com/services/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"
     message: |
-      *📢 AAP Job Notification*
+      * AAP Job Notification*
       - 작업 이름: {{ job_template_name | default('N/A') }}
       - 상태: {{ job_status | default('N/A') }}
       - 시작: {{ job_start | default('N/A') }}
