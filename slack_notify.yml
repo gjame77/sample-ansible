@@ -1,0 +1,23 @@
+- name: Notify Slack when AAP job completes
+  hosts: node1.localdomain
+  gather_facts: false
+  vars:
+    slack_webhook_url: "https://hooks.slack.com/services/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"
+    message: |
+      *📢 AAP Job Notification*
+      - 작업 이름: {{ job_template_name | default('N/A') }}
+      - 상태: {{ job_status | default('N/A') }}
+      - 시작: {{ job_start | default('N/A') }}
+      - 종료: {{ job_end | default('N/A') }}
+  tasks:
+    - name: Send message to Slack
+      uri:
+        url: "{{ slack_webhook_url }}"
+        method: POST
+        headers:
+          Content-Type: "application/json"
+        body: >
+          {
+            "text": "{{ message }}"
+          }
+        body_format: json
