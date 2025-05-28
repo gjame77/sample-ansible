@@ -1,4 +1,4 @@
-- name: Install and start Nginx on RHEL 9 nodes   
+- name: Install and start Nginx on RHEL 9 nodes
   hosts: all
   become: true
   tasks:
