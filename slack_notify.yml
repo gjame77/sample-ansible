@@ -1,4 +1,4 @@
-- name: Notify Slack when AAP job completes
+- name: Notify Slack when AAP job completes 
   hosts: node1.localdomain
   gather_facts: false
   vars:
