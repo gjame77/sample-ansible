@@ -2,7 +2,7 @@
   hosts: node1.localdomain
   gather_facts: false
   vars:
-    slack_webhook_url: "https://hooks.slack.com/services/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"
+    slack_webhook_url: "https://hooks.slack.com/services/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"
     message: |
       * AAP Job Notification*
       - 작업 이름: {{ job_template_name | default('N/A') }}
