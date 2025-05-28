@@ -20,4 +20,4 @@
           {
             "text": "{{ message }}"
           }
-        body_format: json
+        body_format: json
