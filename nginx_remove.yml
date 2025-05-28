@@ -1,0 +1,24 @@
+- name: Remove Nginx from RHEL 9 nodes
+  hosts: all
+  become: true
+  tasks:
+    - name: Stop nginx service if running
+      ansible.builtin.service:
+        name: nginx
+        state: stopped
+      ignore_errors: true
+
+    - name: Disable nginx service
+      ansible.builtin.service:
+        name: nginx
+        enabled: false
+      ignore_errors: true
+
+    - name: Remove nginx package
+      ansible.builtin.dnf:
+        name: nginx
+        state: absent
+
+    - name: Reset nginx module
+      ansible.builtin.command: "dnf module reset nginx -y"
+      ignore_errors: true
