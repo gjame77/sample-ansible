@@ -1,0 +1,17 @@
+- name: Install and start Nginx on RHEL 9 nodes
+  hosts: all
+  become: true
+  tasks:
+    - name: Enable nginx module
+      ansible.builtin.command: "dnf module enable nginx:1.22 -y"
+
+    - name: Install nginx from official repo
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+
+    - name: Start and enable nginx service
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
