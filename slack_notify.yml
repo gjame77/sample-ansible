@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: false
   vars:
-    slack_webhook_url: "https://hooks.slack.com/services/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"
+    slack_webhook_url: "https://hooks.slack.com/services/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"
     slack_message: |
       📣 AAP 작업 완료!
       - 이름: {{ job_template_name | default('N/A') }}
