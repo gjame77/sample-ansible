@@ -1,0 +1,8 @@
+- name: Install package by survey
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install dynamic package
+      package:
+        name: "{{ package_name }}"
+        state: present
