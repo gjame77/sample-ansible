@@ -1,15 +1,15 @@
-- name: Notify Slack
+- name: Slack Webhook 메시지 전송 예제
   hosts: localhost
   gather_facts: false
   vars:
-    slack_webhook_url: "https://hooks.slack.com/services/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"
-    slack_message: AAP 작업 완료!
+    slack_webhook_url: "https://hooks.slack.com/services/T08U37A91MZ/B08UGATHBR8/4olZhB"
+    slack_message: "Hello, World!"
   tasks:
-    - name: Send Slack message
+    - name: Send Slack Webhook Message
       uri:
         url: "{{ slack_webhook_url }}"
         method: POST
         headers:
           Content-Type: "application/json"
-        body: "hello"
+        body: "{{ {'text': slack_message} | to_json }}"
         body_format: json
