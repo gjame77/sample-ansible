@@ -3,12 +3,7 @@
   gather_facts: false
   vars:
     slack_webhook_url: "https://hooks.slack.com/services/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"
-    slack_message: |
-      📣 AAP 작업 완료!
-      - 이름: {{ job_template_name | default('N/A') }}
-      - 상태: {{ job_status | default('N/A') }}
-      - 시작: {{ job_start | default('N/A') }}
-      - 종료: {{ job_end | default('N/A') }}
+    slack_message: AAP 작업 완료!
   tasks:
     - name: Send Slack message
       uri:
@@ -16,5 +11,5 @@
         method: POST
         headers:
           Content-Type: "application/json"
-        body: "{{ {'text': slack_message} | to_json }}"
+        body: "hello"
         body_format: json
