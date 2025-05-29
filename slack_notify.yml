@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: false
   vars:
-    slack_token: "xoxb-8955248307747-8970589760564-9TVUeJfNVVm1CwmInkFZgyXA"
+    slack_token: "xoxb-8955248307747-8962170853094-HxJOvGaJc6l8nbn5hMPM55lz"
     slack_channel: "#app-alerts"  # 실제 Bot이 초대된 채널명
     slack_message: "Hello, World!"
   tasks:
