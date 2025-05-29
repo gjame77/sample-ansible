@@ -2,8 +2,9 @@
   hosts: localhost
   gather_facts: false
   vars:
-    slack_token: "xoxb-8955248307747-8962170853094-Ewyhoxaxt6GxQ9vZ6IXff498"
-    slack_channel: "#app-alerts"  # 실제 Bot이 초대된 채널명
+    # 여기에 직접 변수 입력해도 되고, extra_vars/인벤토리 등 외부에서 받아도 됩니다
+    # slack_token: "xoxb-여기에-슬랙-토큰"
+    # slack_channel: "#aap-alerts"
     slack_message: "Hello, World!"
   tasks:
     - name: Send Slack message using chat.postMessage API
@@ -19,3 +20,8 @@
             "text": "{{ slack_message }}"
           }
         body_format: json
+      register: slack_result
+
+    - name: Slack 응답 결과 출력(debug)
+      debug:
+        var: slack_result.json
