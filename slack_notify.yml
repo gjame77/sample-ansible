@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: false
   vars:
-    slack_webhook_url: "https://hooks.slack.com/services/T08U37A91MZ/B08UGATHBR8/4olZhB"
+    slack_webhook_url: "https://hooks.slack.com/services/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"
     slack_message: "Hello, World!"
   tasks:
     - name: Send Slack Webhook Message
