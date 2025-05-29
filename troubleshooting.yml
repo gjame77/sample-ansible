@@ -1,0 +1,17 @@
+    - name: Send Slack message using chat.postMessage API
+      uri:
+        url: "https://slack.com/api/chat.postMessage"
+        method: POST
+        headers:
+          Authorization: "Bearer {{ slack_token }}"
+          Content-Type: "application/json"
+        body: |
+          {
+            "channel": "{{ slack_channel }}",
+            "text": "{{ slack_message }}"
+          }
+        body_format: json
+      register: slack_result
+
+    - debug:
+        var: slack_result
