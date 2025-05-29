@@ -1,15 +1,21 @@
-- name: Slack Webhook 메시지 전송 예제
+- name: Slack API(chat.postMessage) 메시지 전송 예제
   hosts: localhost
   gather_facts: false
   vars:
-    slack_webhook_url: "https://hooks.slack.com/services/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"
+    slack_token: "xoxb-8955248307747-8954481482007-mkZulXrDYxhn0QYoetabtoY3"
+    slack_channel: "#aap-alerts"  # 실제 Bot이 초대된 채널명
     slack_message: "Hello, World!"
   tasks:
-    - name: Send Slack Webhook Message
+    - name: Send Slack message using chat.postMessage API
       uri:
-        url: "{{ slack_webhook_url }}"
+        url: "https://slack.com/api/chat.postMessage"
         method: POST
         headers:
+          Authorization: "Bearer {{ slack_token }}"
           Content-Type: "application/json"
-        body: "{{ {'text': slack_message} | to_json }}"
+        body: |
+          {
+            "channel": "{{ slack_channel }}",
+            "text": "{{ slack_message }}"
+          }
         body_format: json
