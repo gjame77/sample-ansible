@@ -2,9 +2,7 @@
   hosts: localhost
   gather_facts: false
   vars:
-    # 여기에 직접 변수 입력해도 되고, extra_vars/인벤토리 등 외부에서 받아도 됩니다
-    # slack_token: "xoxb-여기에-슬랙-토큰"
-    # slack_channel: "#aap-alerts"
+    # 이 아래는 외부(extra_vars, 인벤토리, Credential 등에서 받아옵니다.
     slack_message: "Hello, World!"
   tasks:
     - name: Send Slack message using chat.postMessage API
