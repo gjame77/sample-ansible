@@ -1,8 +1,15 @@
-- name: Install package by survey
+- name: Install nginx
   hosts: all
   become: yes
   tasks:
-    - name: Install dynamic package
+    - name: Install nginx package
       package:
-        name: "{{ package_name }}"
+        name: nginx
         state: present
+
+    - name: Verify nginx installed
+      command: rpm -q nginx
+      register: result
+
+    - debug:
+        var: result.stdout
