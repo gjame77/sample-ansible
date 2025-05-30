@@ -1,3 +1,4 @@
+nginx-variable.yml---
 - name: Install package by survey
   hosts: all
   become: yes
@@ -6,3 +7,11 @@
       package:
         name: "{{ package_name }}"
         state: present
+
+    - name: Check installed package
+      command: "rpm -q {{ package_name }}"
+      register: result
+
+    - name: Print result
+      debug:
+        var: result.stdout
